@@ -8,10 +8,11 @@ import { AssetDefinitionModule } from './asset-definition/asset-definition.modul
 import { PurchaseModule } from './purchase/purchase.module';
 import { VendorModule } from './vendor/vendor.module';
 
-
 @NgModule({
   declarations: [
     AppComponent
+    
+    
     
   ],
   imports: [
