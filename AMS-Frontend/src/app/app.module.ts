@@ -7,12 +7,13 @@ import { AssetCreationModule } from './asset-creation/asset-creation.module';
 import { AssetDefinitionModule } from './asset-definition/asset-definition.module';
 import { PurchaseModule } from './purchase/purchase.module';
 import { VendorModule } from './vendor/vendor.module';
+import { PurchaseListComponent } from './purchase/purchase-list/purchase-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
-    AppComponent
-    
+    AppComponent    
   ],
   imports: [
     BrowserModule,
@@ -21,7 +22,8 @@ import { VendorModule } from './vendor/vendor.module';
     AssetCreationModule,
     AssetDefinitionModule,
     PurchaseModule,
-    VendorModule
+    VendorModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
