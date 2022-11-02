@@ -4,7 +4,7 @@
             <div class="input-group mb-3">
             <input type="text" class="form-control"
             placeholder="Search text here..."
-            [(ngModel)]="filterString">
+            >
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let asset of assetsService.assets | filter:filterString | paginate:{itemsPerPage:4,currentPage:page}">
+            <tr *ngFor="let asset of assetsDefinitionService.assetDefinitions">
                 <td (click)="populateForm(asset)">{{asset.adId}}</td> <!-- Edit / Delete -->
                 <td (click)="populateForm(asset)"> {{asset.adName}}</td>
                 
@@ -30,7 +30,7 @@
                     </button>
                     &nbsp;
                     <button style="width:70px;height: 40px;margin-top:3px;" class="btn btn-danger"
-                        (click)="deleteasset(asset.adId)">
+                        (click)="deleteAssetDefinition(asset.adId)">
                         Delete
                     </button>
                 </td>
@@ -38,10 +38,5 @@
         </tbody>
 
     </table>
-    <div class="footer">
-        <!--pagination-->
-        <pagination-controls (pageChange)="page=($event)">
-
-        </pagination-controls>
-    </div>
+   
 </div>

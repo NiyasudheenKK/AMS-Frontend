@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { AssetDefintitonEntryComponent } from './asset-definition/asset-defintiton-entry/asset-defintiton-entry.component';
+import { AssetDefintitonListComponent } from './asset-definition/asset-defintiton-list/asset-defintiton-list.component';
 
 const routes: Routes = [
-  {path: '', redirectTo:'/login',pathMatch:'full'},
-  {path: '/login', component:LoginComponent},
-  {path: '/userRegistration', component:UserRegistrationComponent}
+  {path: '', redirectTo:'assetDefinition',pathMatch:'full'},
+  {path:'assetDefinition',component:AssetDefintitonListComponent},
+  {path:'assetType',component:AssetDefintitonEntryComponent}
+  
 ];
 
 @NgModule({

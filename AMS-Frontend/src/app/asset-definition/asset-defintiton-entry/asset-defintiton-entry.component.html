@@ -1,1 +1,50 @@
-<p>asset-defintiton-entry works!</p>
+<form name="assetDefinitionForm" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+
+    <!--Asset id Auto generate-->
+    <input type="hidden" name="adId" [(ngModel)]="this.assetsDefinitionService.formAssetDefinitionData.adId">
+
+    <!--Asset name-->
+    <div class="form-group">
+        <label>Asset Name</label>
+        <input name="adName" #adName="ngModel" [(ngModel)]="assetsDefinitionService.formAssetDefinitionData.adName" class="form-control"
+            placeholder="Enter Asset name" minlength="6" maxlength="25" required
+            [ngClass]="{'is-invalid':adName.touched && adName.invalid}">
+    
+    <div class="validation-error" *ngIf="adName.touched && adName.invalid">
+        <div *ngIf="assetName.errors.required">
+            Asset Name must not be empty
+        </div>
+    </div>
+</div>
+    <br>
+
+
+    
+    <!--Role name-->
+    <div class="form-group">
+        <label class="col-md-4">Asset Type</label>
+        <select name="atId" id="atId" class="form-control" #atId="ngModel" required
+            [(ngModel)]="assetsDefinitionService.formAssetDefinitionData.atId">
+            <option value=0 disabled>Choose assetType</option>
+            <option *ngFor="let assetType of assetsDefinitionService.assetTypes" value="{{assetType.atId}}">{{assetType.roleName}}</option>
+        </select>
+        <div class="validation-error" *ngIf="atId.touched && atId.invalid">
+            <div *ngIf="atId.errors.required">
+                Please select asset Type!
+            </div>
+        </div>
+    </div>
+
+    <br>
+   
+   
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-primary form-control"
+        [disabled]="!(form.valid && form.dirty)">Submit</button>&nbsp;
+        <button type="reset" class="btn btn-lg btn-secondary form-control">Reset</button>
+    </div>
+
+   
+    
+</form>

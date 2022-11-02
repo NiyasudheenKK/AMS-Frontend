@@ -15,8 +15,8 @@ export class AssetDefinitionService {
    AssetType=new AssetType();
 
   //List of AssetDefinitions -- Retrieve all Records
-  AssetDefinitions : AssetDefinition[]; //All AssetDefinitions
-  AssetTypes:AssetType[]; //All AssetTypes
+  assetDefinitions : AssetDefinition[]; //All AssetDefinitions
+  assetTypes:AssetType[]; //All AssetTypes
 
   constructor(private httpClient : HttpClient)
   {
@@ -28,28 +28,28 @@ export class AssetDefinitionService {
   getAllAssetDefinitions() : Observable<any>
   {
     //  http://localhost:9095/api/AssetDefinitions
-    return this.httpClient.get(environment.apiUrl + "/api/AssetDefinitions");
+    return this.httpClient.get(environment.apiUrl + "/api/assetDefinitions");
   }
 
   //  2 Retrieve all AssetDefinitions for Listing
   bindGetAllAssetDefinitionsList()
   {
-    this.httpClient.get(environment.apiUrl + '/api/AssetDefinitions')
+    this.httpClient.get(environment.apiUrl + '/api/assetDefinitions')
     .toPromise()
     .then(
       (response) => {
         console.log(response);
-        this.AssetDefinitions = response as AssetDefinition[];
+        this.assetDefinitions = response as AssetDefinition[];
       }
     );
   }
   //3 Get all AssetTypes for binding
   bindGetAllAssetTypes(){
-    this.httpClient.get(environment.apiUrl+'/api/AssetTypes')
+    this.httpClient.get(environment.apiUrl+'/api/assetTypes')
     .toPromise()
     .then((response) => {
       console.log(response);
-      this.AssetTypes = response as AssetType[];
+      this.assetTypes = response as AssetType[];
     });
   }
 
