@@ -7,10 +7,16 @@ import { AssetCreationModule } from './asset-creation/asset-creation.module';
 import { AssetDefinitionModule } from './asset-definition/asset-definition.module';
 import { PurchaseModule } from './purchase/purchase.module';
 import { VendorModule } from './vendor/vendor.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { VendorsService } from './vendor/shared/vendors.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent
+    
+   
+   
     
     
     
@@ -22,9 +28,11 @@ import { VendorModule } from './vendor/vendor.module';
     AssetCreationModule,
     AssetDefinitionModule,
     PurchaseModule,
-    VendorModule
+    VendorModule,
+    HttpClientModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [VendorsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
