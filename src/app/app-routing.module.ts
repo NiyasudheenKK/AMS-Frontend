@@ -12,7 +12,7 @@ import { CustomerhomeComponent } from './customer/customerhome/customerhome.comp
 const routes: Routes = [
   {path: '', redirectTo:'/userlogin',pathMatch:'full'},
   {path: 'userentry', component: UserentryComponent},
-  {path: 'userlogin', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path:'adminregistration',component:AdminentryComponent},
   {path:'loanapplication',component:LoanapplicationComponent},
   {path:'loandetails',component:LoandetailsComponent},
