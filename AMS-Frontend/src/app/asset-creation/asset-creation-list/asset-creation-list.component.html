@@ -1,0 +1,57 @@
+<div class="container">
+    <div class="header">
+        <div class="list-row">
+            <div class="input-group mb-3"></div>
+            <!--input type="text" class="form-control" placeholder="search text here...." [(ngModel)]="filter" /-->
+        </div>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>typeId</th>
+                <th>MakeId</th>
+                <th>AdId</th>
+                <th>Model</th>
+                <th>SerialNumber</th> <!-- Edit / Delete -->
+                <th>year</th> <!-- Edit / Delete -->
+                <th>Pdate</th> <!-- Edit / Delete -->
+                <th>Warranty</th> <!-- Edit / Delete -->
+                <th>From</th> <!-- Edit / Delete -->
+                <th>To</th> <!-- Edit / Delete -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let asset of assetCreationServices.assetCreations">
+                <td (click)="populateForm(asset)">{{asset.amId}}</td> <!-- Edit / Delete -->
+                <td (click)="populateForm(asset)">{{asset.amAtypeId}}</td> <!-- Edit / Delete -->
+                
+                <td (click)="populateForm(asset)">{{asset.amMakeId}}</td>
+                <td (click)="populateForm(asset)">{{asset.amAdId}}</td>
+                <td (click)="populateForm(asset)">{{asset.amSnumber}}</td>
+                <td (click)="populateForm(asset)">{{asset.amMyyear}}</td>
+                <td (click)="populateForm(asset)">{{asset.amPdate}}</td>
+                <td (click)="populateForm(asset)">{{asset.amWarranty}}</td>
+                <td (click)="populateForm(asset)">{{asset.amFrom}}</td>
+                <td (click)="populateForm(asset)">{{asset.amTo}}</td>
+                <td (click)="populateForm(asset)">{{asset.amModel}}</td>
+                
+                <td>
+                    <button style="width:70px;height: 40px;" class="btn btn-primary" (click)="updateAsset(asset.amId)">
+                        Edit
+                    </button>
+                    &nbsp;
+                    <button style="width:70px;height: 40px;margin-top:3px;" class="btn btn-danger"
+                        (click)="deleteAsset(asset.amId)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <!-- <div class="footer">
+        pagination
+        pagination-controls (pageChange)="page=($event)"></pagination-controls
+    </div> -->
+</div>
